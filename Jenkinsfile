@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "rcmelendez/cats"
+    registry = "tamvn/helloworld"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
@@ -52,9 +52,9 @@ pipeline {
     stage('Deploy to AWS EKS cluster') {
       steps {
         sh '''
-           kubectl apply -f k8s/namespace.yml
-           kubectl apply -f k8s/deployment.yml
-           kubectl apply -f k8s/service.yml
+           kubectl apply -f Kubernetes/namespace.yml
+           kubectl apply -f Kubernetes/deployment.yml
+           kubectl apply -f Kubernetes/service.yml
            echo "View all resources"
            kubectl get all -o wide -n udacity
            '''
