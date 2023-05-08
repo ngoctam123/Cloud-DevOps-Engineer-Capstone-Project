@@ -52,9 +52,9 @@ pipeline {
     stage('Deploy to AWS EKS cluster') {
       steps {
         sh '''
-           kubectl apply -f Kubernetes/namespace.yml
-           kubectl apply -f Kubernetes/deployment.yml
-           kubectl apply -f Kubernetes/service.yml
+           kubectl apply -f kubernetes/namespace.yml
+           kubectl apply -f kubernetes/deployment.yml
+           kubectl apply -f kubernetes/service.yml
            echo "View all resources"
            kubectl get all -o wide -n udacity
            '''
